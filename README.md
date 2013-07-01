@@ -1,7 +1,5 @@
 # rust-gfx
-Bindings for SDL_gfx in Rust, using [Rust-SDL](https://github.com/brson/rust-sdl)
-
-SDL_gfx documentation: http://www.ferzkopp.net/Software/SDL_gfx-2.0/Docs/html/index.html
+Rust bindings for [SDL_gfx](http://www.ferzkopp.net/Software/SDL_gfx-2.0/Docs/html/index.html), using [Rust-SDL](https://github.com/brson/rust-sdl)
 
 # Overview
 
