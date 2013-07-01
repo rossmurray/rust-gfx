@@ -7,6 +7,6 @@
 #[license = "CC0"];
 #[crate_type = "lib"];
 
-pub use sdl::*;
+extern mod sdl;
 
 pub mod gfx;
