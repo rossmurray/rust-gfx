@@ -7,7 +7,7 @@ rust-gfx is a rust library that wraps the functions in SDL_gfx to make them easy
 
 # Dependencies
 
-* *Rust* - compiled against *Master*.
+* *Rust* - https://github.com/mozilla/rust compiled against *Master*.
 * *SDL 1.2 development libraries* - install through package management or http://www.libsdl.org/
 * *SDL_gfx 1.2 development library* - install through package management or: http://www.ferzkopp.net/joomla/content/view/19/14/
 * *Rust-SDL* - https://github.com/brson/rust-sdl
