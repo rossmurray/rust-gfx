@@ -20,7 +20,13 @@ Once you have Rust-SDL compiled, compiling rust-gfx is simply:
 > rustc -L path/to/Rust-SDL/dir/ -o . src/gfx.rc
 
 # Demo
-Soon
+To compile the demo:
+
+> cd rust-gfx
+
+> rustc -L . -L /path/to/Rust-SDL/dir/ demo/demo.rs
+
+Then execute demo/demo
 
 #License
 rust-gfx is distributed under the CC0 license.
