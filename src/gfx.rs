@@ -164,3 +164,9 @@ pub fn filled_circle(screen: &Surface, x: i16, y: i16, radius: i16, color: &Colo
 		};
 	}
 }
+
+pub fn pixel_rgba(screen: &Surface, x: i16, y: i16, r: u8, g: u8, b: u8, a: u8) {
+	unsafe {
+		pixelRGBA(screen.raw, x, y, r, g, b, a);
+	}
+}
