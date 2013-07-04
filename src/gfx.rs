@@ -1,3 +1,12 @@
+#[link(name = "gfx",
+       vers = "0.0.1",
+       uuid = "9341ba57-6ef9-4a76-a6d9-f3ec9a19d9f4",
+       url = "http://github.com/rossmurray/rust-gfx")];
+
+#[comment = "SDL_gfx bindings"];
+#[license = "CC0"];
+#[crate_type = "lib"];
+
 extern mod sdl;
 
 use std::libc::{c_int, c_schar, uint8_t, int16_t, uint32_t};
