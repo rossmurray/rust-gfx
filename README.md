@@ -17,7 +17,7 @@ Once you have Rust-SDL compiled, compiling rust-gfx is simply:
 
 > cd rust-gfx
 
-> rustc -L path/to/Rust-SDL/dir/ -o . src/gfx.rc
+> rustc -L path/to/Rust-SDL/dir/ src/gfx.rc
 
 # Demo
 To execute the demo:
