@@ -29,4 +29,4 @@ To execute the demo:
 > ./demo/demo
 
 #License
-rust-gfx is distributed under the CC0 license.
+rust-gfx is distributed under the [CC0 license](http://creativecommons.org/publicdomain/zero/1.0/).
