@@ -3,7 +3,6 @@ extern mod gfx;
 
 use std::i16;
 use sdl::video;
-use gfx::*;
 use sdl::wm;
 use sdl::event;
 
@@ -33,8 +32,8 @@ fn sdl_main() {
 	let bg = video::RGB(0, 0, 0);
 	screen.fill(bg);
 	loop {	
-		for i16::range(0, 100) |_i| {
-			gfx::filled_circle(screen, rand(10, 1190), rand(10, 790), rand(20, 60), &rng.gen::<sdl::video::Color>());
+		for i16::range(0, 10) |_i| {
+			gfx::filled_circle(screen, rand(10, 1190), rand(10, 790), rand(8, 50), &rng.gen::<sdl::video::Color>());
 		}
 		if check_exit_input() == true {
 			break;
@@ -50,6 +49,9 @@ fn sdl_main() {
 fn rand(min: i16, max: i16) -> i16 {
 	let diff = max - min;
 	let mut r = rand::random::<i16>();
+	if r < 0 {
+		r = r * -1;
+	}
 	r = r % diff;
 	r = r + min;
 	r
