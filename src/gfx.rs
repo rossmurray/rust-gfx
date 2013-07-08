@@ -153,29 +153,39 @@ extern {
 	//fn stringRGBA(dst: *SDL_Surface, x: int16_t, y: int16_t, const char *s, r: uint8_t, g: uint8_t, b: uint8_t, a: uint8_t) -> c_int;
 }
 
-pub fn rectangle_rgba(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, r: u8, g: u8, b: u8, a: u8) {
+pub fn rectangle(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
+	let (r,g,b,a) = map_color(screen, color);
 	unsafe {
 		rectangleRGBA(screen.raw, x1, y1, x2, y2, r, g, b, a);
 	}
 }
 
-pub fn box_rgba(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, r: u8, g: u8, b: u8, a: u8) {
+pub fn box(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
+	let (r,g,b,a) = map_color(screen, color);
 	unsafe {
 		boxRGBA(screen.raw, x1, y1, x2, y2, r, g, b, a);
 	}
 }
 
 pub fn filled_circle(screen: &Surface, x: i16, y: i16, radius: i16, color: &Color) {
+	let (r,g,b,a) = map_color(screen, color);
 	unsafe {
-		match *color {
-			RGB(r, g, b) => filledCircleRGBA(screen.raw, x, y, radius, r, g, b, 255),
-			RGBA(r, g, b, a) => filledCircleRGBA(screen.raw, x, y, radius, r, g, b, a),
-		};
+		filledCircleRGBA(screen.raw, x, y, radius, r, g, b, a);
 	}
 }
 
-pub fn pixel_rgba(screen: &Surface, x: i16, y: i16, r: u8, g: u8, b: u8, a: u8) {
+pub fn pixel(screen: &Surface, x: i16, y: i16, color: &Color) {
+	let (r,g,b,a) = map_color(screen, color);
 	unsafe {
 		pixelRGBA(screen.raw, x, y, r, g, b, a);
+	}
+}
+
+//this is temporary.
+//there's a bug with the SDL lib version of this from rust-sdl that I haven't figured out yet.
+fn map_color(_screen: &Surface, color: &Color) -> (u8, u8, u8, u8) {
+	match *color {
+		RGB(r,g,b) => (r,g,b,255),
+		RGBA(r,g,b,a) => (r,g,b,a)
 	}
 }
