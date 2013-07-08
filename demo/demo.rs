@@ -23,7 +23,9 @@ fn main() {
 fn sdl_main() {
 	sdl::init([sdl::InitEverything]);
 	wm::set_caption("rust-gfx test", "rust-gfx");
-	let screen = match sdl::video::set_video_mode(1200, 800, 32, [sdl::video::HWSurface], [sdl::video::DoubleBuf]) {
+	let SWIDTH: i16 = 1200;
+	let SHEIGHT: i16 = 800;
+	let screen = match sdl::video::set_video_mode(SWIDTH as int, SHEIGHT as int, 32, [sdl::video::HWSurface], [sdl::video::DoubleBuf]) {
 		Ok(screen) => screen,
 		Err(err) => fail!(fmt!("failed to set video mode: %s", err))
 	};
@@ -31,16 +33,27 @@ fn sdl_main() {
 
 	let bg = video::RGB(0, 0, 0);
 	screen.fill(bg);
-	loop {	
-		for i16::range(0, 10) |_i| {
-			gfx::filled_circle(screen, rand(10, 1190), rand(10, 790), rand(8, 50), &rng.gen::<sdl::video::Color>());
+	loop {
+		if rng.gen() {
+			for i16::range(0, 5) |_i| {
+				gfx::filled_circle(screen, rand(10, SWIDTH - 10), rand(10, SHEIGHT - 10), rand(4, 45), &rng.gen::<sdl::video::Color>());
+			}
+		}
+		else {
+			for i16::range(0, 5) |_i| {
+				let x = rand(10, SWIDTH - 10);
+				let y = rand(10, SHEIGHT - 10);
+				let x2 = x + rand(3, 60);
+				let y2 = y + rand(3, 60);
+				gfx::box(screen, x, y, x2, y2, &rng.gen::<sdl::video::Color>());
+			}
 		}
 		if check_exit_input() == true {
 			break;
 		}
 		screen.flip();
 		unsafe {
-			usleep(90000);
+			usleep(20 * 1000);
 		}
 	}
 	sdl::quit();
