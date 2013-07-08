@@ -181,6 +181,13 @@ pub fn pixel(screen: &Surface, x: i16, y: i16, color: &Color) {
 	}
 }
 
+pub fn line(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
+	let (r,g,b,a) = map_color(screen, color);
+	unsafe {
+		lineRGBA(screen.raw, x1, y1, x2, y2, r, g, b, a);
+	}
+}
+
 //this is temporary.
 //there's a bug with the SDL lib version of this from rust-sdl that I haven't figured out yet.
 fn map_color(_screen: &Surface, color: &Color) -> (u8, u8, u8, u8) {
