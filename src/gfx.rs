@@ -154,43 +154,57 @@ extern {
 }
 
 pub fn rectangle(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
-	let (r,g,b,a) = map_color(screen, color);
+	let (r,g,b,a) = unwrap_color(screen, color);
 	unsafe {
 		rectangleRGBA(screen.raw, x1, y1, x2, y2, r, g, b, a);
 	}
 }
 
 pub fn box(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
-	let (r,g,b,a) = map_color(screen, color);
+	let (r,g,b,a) = unwrap_color(screen, color);
 	unsafe {
 		boxRGBA(screen.raw, x1, y1, x2, y2, r, g, b, a);
 	}
 }
 
 pub fn filled_circle(screen: &Surface, x: i16, y: i16, radius: i16, color: &Color) {
-	let (r,g,b,a) = map_color(screen, color);
+	let (r,g,b,a) = unwrap_color(screen, color);
 	unsafe {
 		filledCircleRGBA(screen.raw, x, y, radius, r, g, b, a);
 	}
 }
 
-pub fn pixel(screen: &Surface, x: i16, y: i16, color: &Color) {
-	let (r,g,b,a) = map_color(screen, color);
+pub fn set_pixel(screen: &Surface, x: i16, y: i16, color: &Color) {
+	let (r,g,b,a) = unwrap_color(screen, color);
 	unsafe {
 		pixelRGBA(screen.raw, x, y, r, g, b, a);
 	}
 }
 
 pub fn line(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
-	let (r,g,b,a) = map_color(screen, color);
+	let (r,g,b,a) = unwrap_color(screen, color);
 	unsafe {
 		lineRGBA(screen.raw, x1, y1, x2, y2, r, g, b, a);
 	}
 }
 
+pub fn line_aa(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
+	let (r,g,b,a) = unwrap_color(screen, color);
+	unsafe {
+		aalineRGBA(screen.raw, x1, y1, x2, y2, r, g, b, a);
+	}
+}
+
+pub fn line_thick(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, width: u8, color: &Color) {
+	let (r,g,b,a) = unwrap_color(screen, color);
+	unsafe {
+		thickLineRGBA(screen.raw, x1, y1, x2, y2, width, r, g, b, a);
+	}
+}
+
 //this is temporary.
 //there's a bug with the SDL lib version of this from rust-sdl that I haven't figured out yet.
-fn map_color(_screen: &Surface, color: &Color) -> (u8, u8, u8, u8) {
+fn unwrap_color(_screen: &Surface, color: &Color) -> (u8, u8, u8, u8) {
 	match *color {
 		RGB(r,g,b) => (r,g,b,255),
 		RGBA(r,g,b,a) => (r,g,b,a)
