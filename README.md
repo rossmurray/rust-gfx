@@ -3,7 +3,9 @@ Rust bindings for [SDL_gfx](http://www.ferzkopp.net/Software/SDL_gfx-2.0/Docs/ht
 
 # Overview
 
-rust-gfx is a rust library that wraps the functions in SDL_gfx to make them easy to use in Rust. SDL_gfx is a C library for drawing primitives like circles, squares and lines to an SDL_Surface. This library depends on Rust-SDL.
+rust-gfx is a rust library for for drawing primitives like circles, squares and lines to an SDL_Surface.
+
+It depends on SDL_gfx and Rust-SDL.
 
 # Dependencies
 
