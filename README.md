@@ -1,3 +1,5 @@
+# does not compile ATM
+
 # rust-gfx
 
 rust-gfx is a rust library for for drawing primitives like circles, squares and lines to an SDL_Surface.
