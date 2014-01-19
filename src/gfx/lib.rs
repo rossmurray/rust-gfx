@@ -1,11 +1,8 @@
-#[link(name = "gfx",
-       vers = "0.0.1",
-       uuid = "9341ba57-6ef9-4a76-a6d9-f3ec9a19d9f4",
-       url = "http://github.com/rossmurray/rust-gfx")];
-
+#[crate_id="gfx#0.0.1"];
 #[comment = "SDL_gfx bindings"];
 #[license = "CC0"];
 #[crate_type = "lib"];
+#[feature(link_args)];
 
 extern mod sdl;
 
@@ -160,7 +157,7 @@ pub fn rectangle(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &C
 	}
 }
 
-pub fn box(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
+pub fn filled_rect(screen: &Surface, x1: i16, y1: i16, x2: i16, y2: i16, color: &Color) {
 	let (r,g,b,a) = unwrap_color(screen, color);
 	unsafe {
 		boxRGBA(screen.raw, x1, y1, x2, y2, r, g, b, a);
