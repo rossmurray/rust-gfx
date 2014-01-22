@@ -4,4 +4,4 @@ before_install:
 install:
   - sudo apt-get install rust-nightly
 script:
-  - rustpkg build yourpackage # for example, using rustpkg not required
+  - rustpkg build gfx # for example, using rustpkg not required
