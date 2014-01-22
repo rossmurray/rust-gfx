@@ -33,3 +33,5 @@ To execute the demo:
 
 #License
 rust-gfx is distributed under the [CC0 license](http://creativecommons.org/publicdomain/zero/1.0/).
+
+test for travis-ci
