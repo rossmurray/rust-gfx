@@ -6,7 +6,7 @@ install:
   - sudo apt-get install libsdl1.2-dev
   - sudo apt-get install libsdl-gfx1.2-dev
   - git clone https://github.com/brson/rust-sdl.git
-  - export RUST_PATH=rust-sdl
+  - export RUST_PATH=$(pwd)/rust-sdl
   - rustpkg install sdl
 script:
   - rustpkg build gfx # for example, using rustpkg not required
