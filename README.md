@@ -6,7 +6,7 @@ It depends on [SDL_gfx](http://www.ferzkopp.net/Software/SDL_gfx-2.0/Docs/html/i
 
 # Dependencies
 
-* *Rust* - https://github.com/mozilla/rust compiled against *1.9*.
+* *Rust* - https://github.com/mozilla/rust compiled against *0.10-pre (master)*.
 * *SDL 1.2 development libraries* - install through package management or http://www.libsdl.org/
 * *SDL_gfx 1.2 development library* - install through package management or: http://www.ferzkopp.net/joomla/content/view/19/14/
 * *Rust-SDL* - https://github.com/brson/rust-sdl
