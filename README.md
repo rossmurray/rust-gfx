@@ -15,15 +15,20 @@ It depends on [SDL_gfx](http://www.ferzkopp.net/Software/SDL_gfx-2.0/Docs/html/i
 Once you have Rust-SDL compiled, compiling rust-gfx is simply:
 
 > cd rust-gfx
+
 > export RUST_PATH=/path/to/rust-sdl
+
 > rustpkg install gfx
 
 # Demo
 To execute the demo:
 
 > cd rust-gfx
+
 > export RUST_PATH=/path/to/rust-sdl # If not already set
+
 > rustpkg install gfx-demo
+
 > ./bin/gfx-demo
 
 #License
