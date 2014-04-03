@@ -1,3 +1,6 @@
+These bindings are not currently being updated or maintained.
+Pull requests are welcome, but I don't have time to keep this up to date.
+
 # rust-gfx
 
 rust-gfx is a rust library for for drawing primitives like circles, squares and lines to an SDL_Surface.
